@@ -3,7 +3,6 @@ from tkinter import messagebox
 import sqlite3
 
 
-# Создание базы данных и таблицы пользователей
 def create_db():
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
@@ -18,7 +17,6 @@ def create_db():
     conn.close()
 
 
-# Регистрация нового пользователя
 def register_user(username, password):
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
@@ -32,7 +30,6 @@ def register_user(username, password):
         conn.close()
 
 
-# Авторизация пользователя
 def authorize_user(username, password):
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
@@ -46,7 +43,6 @@ def authorize_user(username, password):
         messagebox.showerror("Ошибка", "Неверный логин или пароль.")
 
 
-# Окно регистрации
 def open_registration_window():
     reg_window = tk.Toplevel(root)
     reg_window.title("Регистрация")
@@ -63,7 +59,6 @@ def open_registration_window():
               command=lambda: register_user(username_entry.get(), password_entry.get())).pack(pady=10)
 
 
-# Основное окно
 root = tk.Tk()
 root.title("Авторизация")
 
